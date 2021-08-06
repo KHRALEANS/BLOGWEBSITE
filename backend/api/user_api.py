@@ -4,8 +4,7 @@ from backend.models.user_model import User
 from backend.services.user_service import UserService
 from backend.api import bp
 
-#user_service = inject.instance(UserService)
-user_service = UserService()
+user_service = inject.instance(UserService)
 
 @bp.route('/user/create/', methods=['POST'])
 def create_user():

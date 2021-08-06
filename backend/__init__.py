@@ -1,15 +1,8 @@
-from flask import Flask
-from flask_cors import CORS
-from config import Config
-
-from flask import Blueprint
-from backend.blogweb import bp as blog_module
-from backend.api import bp as api_module
+import inject
+import db
 
 from backend.repository.user_repository import UserRepository
 from backend.services.user_service import UserService
-import inject
-import db
 
 db.init_db()
 
@@ -24,6 +17,14 @@ def config_ioc(binder):
 
 
 inject.configure(config_ioc)
+
+from flask import Flask
+from flask_cors import CORS
+from config import Config
+
+from flask import Blueprint
+from backend.blogweb import bp as blog_module
+from backend.api import bp as api_module
 
 
 def create_app():
