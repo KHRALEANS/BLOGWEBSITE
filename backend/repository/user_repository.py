@@ -12,7 +12,7 @@ class UserRepository:
         db.UserSQL.persist(entity)
         return 1
 
-    def getA(self, email: str) -> User:
+    def getByEmail(self, email: str) -> User:
         user = db.UserSQL.get(email=email)
         return user
 

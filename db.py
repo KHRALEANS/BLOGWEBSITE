@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from config import Config
-from backend.models import my_metadata
+
 from backend.models.note_model import Note
 from backend.models.user_model import User
 from backend.repository.base_repository import FSQLAlchemyRepository
@@ -12,6 +12,8 @@ session = DBSession()
 
 NoteSQL = FSQLAlchemyRepository(Note, session)
 UserSQL = FSQLAlchemyRepository(User, session)
+
+from backend.models import my_metadata
 
 
 def init_db():

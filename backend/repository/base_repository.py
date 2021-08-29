@@ -38,17 +38,17 @@ class FSQLAlchemyRepository(BaseRepository):
         self.session.delete(entity)
         self.session.commit()
 
-    def get(self, **pk):
-        return self.session.query(self.model).filter_by(**pk).one()
+    def get(self, **kwargs):
+        return self.session.query(self.model).filter_by(**kwargs).one()
 
-    def get2(self, **pk):
-        return self.session.query(self.model).filter(**pk).one()
+    def get2(self, *criterion):
+        return self.session.query(self.model).filter(*criterion).one()
 
-    def find(self, **keys):
-        return self.session.query(self.model).filter_by(**keys).all()
+    def find(self, **kwargs):
+        return self.session.query(self.model).filter_by(**kwargs).all()
 
-    def find2(self, **keys):
-        return self.session.query(self.model).filter(**keys).all()
+    def find2(self, *criterion):
+        return self.session.query(self.model).filter(*criterion).all()
 
     def create(self, **kw):
         return self.model(**kw)

@@ -16,8 +16,8 @@ class UserService:
         self.user_repository.delete(entity)
         return 1
 
-    def getA(self, email: str) -> User:
-        user = self.user_repository.getA(email)
+    def getByEmail(self, email: str) -> User:
+        user = self.user_repository.getByEmail(email)
         return user
 
     def getAll(self) -> typing.List[User]:
